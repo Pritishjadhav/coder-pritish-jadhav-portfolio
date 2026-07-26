@@ -1,0 +1,378 @@
+/* Skills.css - ULTRA HONEYCOMB DESIGN */
+
+.ultra-skills-section {
+  position: relative;
+  padding: 12rem 0;
+  background: radial-gradient(circle at center, #0a0a0f 0%, #000000 100%);
+  overflow: clip;
+  /* Prevent framer-motion scroll bug */
+  z-index: 1;
+}
+
+/* Immersive Parallax Background Elements */
+.cyber-grid-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.cyber-grid-line {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.2), transparent);
+}
+
+.cyber-grid-line.vertical {
+  top: 0;
+  bottom: 0;
+  left: 20%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(139, 92, 246, 0.2), transparent);
+}
+
+.cyber-grid-line.horizontal {
+  left: 0;
+  right: 0;
+  top: 30%;
+  height: 1px;
+}
+
+.cyber-shape-1 {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(236, 72, 153, 0.1);
+  border-radius: 40px;
+  transform: rotate(45deg);
+}
+
+.cyber-shape-2 {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  width: 500px;
+  height: 500px;
+  border: 1px dashed rgba(59, 130, 246, 0.1);
+  border-radius: 50%;
+}
+
+/* Header Styling */
+.ultra-skills-header {
+  text-align: center;
+  margin-bottom: 6rem;
+  position: relative;
+}
+
+.circuit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #a78bfa;
+  padding: 0.6rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  box-shadow: inset 0 0 20px rgba(139, 92, 246, 0.1);
+}
+
+.circuit-badge i {
+  font-size: 1.1rem;
+}
+
+/* Epic Glitch Title */
+.ultra-title {
+  font-size: 5rem;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+  position: relative;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.ultra-title::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  color: #fff;
+  -webkit-text-stroke: 0px;
+  clip-path: polygon(0 40%, 100% 40%, 100% 100%, 0 100%);
+  transform: translate(-4px, 2px);
+  text-shadow: 2px 0 var(--primary-color), -2px 0 var(--secondary-color);
+  animation: glitch-anim-1 3s infinite linear alternate-reverse;
+}
+
+.ultra-title::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  color: #fff;
+  -webkit-text-stroke: 0px;
+  clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
+  transform: translate(4px, -2px);
+  text-shadow: -2px 0 var(--primary-color), 2px 0 var(--secondary-color);
+  animation: glitch-anim-2 4s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim-1 {
+  0% {
+    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+  }
+
+  50% {
+    clip-path: polygon(0 20%, 100% 20%, 100% 100%, 0 100%);
+  }
+
+  100% {
+    clip-path: polygon(0 80%, 100% 80%, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes glitch-anim-2 {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+  }
+
+  50% {
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 80%);
+  }
+
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 20%, 0 20%);
+  }
+}
+
+.ultra-subtitle {
+  font-size: 1.25rem;
+  color: #9ca3af;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Honeycomb Grid Layout */
+.honeycomb-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  /* Space between rows */
+  padding: 4rem 0;
+}
+
+.honeycomb-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  /* Space between hexagons */
+  margin-bottom: -45px;
+  /* Pull rows into each other to lock the cells */
+}
+
+/* Force specific rows (even rows) to be perfectly centered differently if needed */
+.row-2 {
+  margin-left: 0px;
+  /* Adjust if odd/even rows need strict staggering */
+}
+
+/* Individual Hexagon Geometry */
+.hex-wrapper {
+  position: relative;
+  width: 160px;
+  height: 185px;
+  cursor: pointer;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+}
+
+.hex-outer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: var(--hex-color);
+  /* The specific logo color border */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+.hex-inner {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: rgba(15, 15, 20, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+.hex-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Dynamic Inner Glow */
+.hex-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: var(--hex-color);
+  border-radius: 50%;
+  filter: blur(25px);
+  opacity: 0.1;
+  transition: all 0.4s ease;
+  z-index: 0;
+}
+
+.hex-logo {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5)) grayscale(60%);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hex-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #9ca3af;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+/* HOVER STATES FOR CRAZY ANIMATION */
+.hex-wrapper:hover .hex-outer {
+  background: #fff;
+  box-shadow: 0 0 30px var(--hex-color);
+}
+
+.hex-wrapper:hover .hex-inner {
+  background: rgba(25, 25, 35, 0.9);
+}
+
+.hex-wrapper:hover .hex-glow {
+  opacity: 0.5;
+  width: 120px;
+  height: 120px;
+  filter: blur(35px);
+}
+
+.hex-wrapper:hover .hex-logo {
+  filter: drop-shadow(0 15px 20px var(--hex-color)) grayscale(0%);
+  transform: scale(1.3) translateY(-5px);
+}
+
+.hex-wrapper:hover .hex-name {
+  color: #fff;
+  text-shadow: 0 0 10px var(--hex-color);
+  transform: translateY(5px);
+  font-size: 1rem;
+}
+
+/* Responsive - Map to a stacked hex layout on mobile */
+@media (max-width: 1024px) {
+  .ultra-title {
+    font-size: 4rem;
+  }
+
+  .hex-wrapper {
+    width: 130px;
+    height: 150px;
+  }
+
+  .honeycomb-row {
+    margin-bottom: -35px;
+  }
+
+  .hex-logo {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ultra-title {
+    font-size: 2.8rem;
+  }
+
+  /* Reset hex grid for mobile scrolling */
+  .honeycomb-container {
+    padding: 2rem 0;
+    gap: 30px;
+  }
+
+  .honeycomb-row {
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    gap: 20px;
+  }
+
+  .row-2 {
+    margin-left: 0;
+  }
+
+  .hex-wrapper {
+    width: 120px;
+    height: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ultra-title {
+    font-size: 2.2rem;
+  }
+
+  .hex-wrapper {
+    width: 100px;
+    height: 115px;
+  }
+
+  .hex-logo {
+    width: 35px;
+    height: 35px;
+  }
+
+  .hex-name {
+    font-size: 0.75rem;
+  }
+
+  .honeycomb-row {
+    gap: 15px;
+  }
+}

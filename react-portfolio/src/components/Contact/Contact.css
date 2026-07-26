@@ -1,0 +1,451 @@
+/* Contact.css - MAGNETIC ORBS & MARQUEE DESIGN */
+
+.insane-contact-section {
+  position: relative;
+  padding: 10rem 0;
+  background: #000;
+  overflow: clip;
+  z-index: 1;
+}
+
+/* MASSIVE MARQUEE BACKGROUND */
+.contact-marquee-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-5deg);
+  width: 150vw;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.15;
+}
+
+.contact-marquee-row {
+  font-size: 15rem;
+  font-weight: 900;
+  white-space: nowrap;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -5px;
+  line-height: 0.8;
+}
+
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 2px #fff;
+}
+
+.filled-text {
+  color: #fff;
+}
+
+/* MAIN LAYOUT GRID */
+.insane-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 5rem;
+  position: relative;
+  z-index: 5;
+  min-height: 60vh;
+}
+
+/* LEFT COLUMN: TYPOGRAPHY */
+.glitch-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 0.6rem 2rem;
+  border-radius: 5px;
+  /* Boxy tech look */
+  color: #10b981;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981, 0 0 20px #10b981;
+  animation: flashDanger 1s infinite alternate;
+}
+
+@keyframes flashDanger {
+  0% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.insane-title {
+  font-size: 5.5rem;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 2rem;
+  letter-spacing: -3px;
+  text-transform: uppercase;
+}
+
+.gradient-highlight {
+  background: linear-gradient(135deg, #a855f7, #ec4899, #f43f5e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  font-style: italic;
+  padding-right: 10px;
+  /* prevent clip */
+}
+
+.insane-subtitle {
+  font-size: 1.4rem;
+  color: #a1a1aa;
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+/* RIGHT COLUMN: MAGNETIC ORBS */
+.contact-right-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  position: relative;
+}
+
+.magnetic-orb {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), inset 0 0 0 2px transparent;
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+  overflow: hidden;
+}
+
+/* Create the neon liquid wash inside the orb */
+.magnetic-orb::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  opacity: 0.4;
+  transition: opacity 0.4s ease, transform 0.4s ease, background 0.4s ease, filter 0.4s ease;
+  z-index: 0;
+  filter: blur(25px);
+}
+
+.orb-email::before {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.8) 0%, transparent 70%);
+  /* Base Purple */
+}
+
+.orb-email:hover::before {
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.9) 0%, transparent 70%);
+  /* Hover Pink */
+}
+
+.orb-wa::before {
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.8) 0%, transparent 70%);
+  /* Base Emerald */
+}
+
+.orb-wa:hover::before {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.9) 0%, transparent 70%);
+  /* Hover Blue */
+}
+
+.magnetic-orb:hover::before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.2);
+  filter: blur(35px);
+}
+
+.magnetic-orb:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.orb-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  pointer-events: none;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.orb-icon {
+  font-size: 3.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.magnetic-orb:hover .orb-icon {
+  transform: scale(1.3) translateY(-10px);
+}
+
+.orb-label {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.orb-detail {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  max-width: 90%;
+  white-space: nowrap;
+}
+
+/* SOCIAL MATRIX MINIS */
+.social-matrix {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.mini-magnetic {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.mini-magnetic svg {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.mini-magnetic:hover svg {
+  transform: scale(1.2) translateY(-2px);
+}
+
+.mini-magnetic::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  z-index: 0;
+  opacity: 0.8;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.mini-magnetic[title="LinkedIn"]::after {
+  background: #0A66C2;
+}
+
+.mini-magnetic[title="GitHub"]::after {
+  background: #333;
+}
+
+.mini-magnetic[title="Twitter"]::after {
+  background: #1DA1F2;
+}
+
+.mini-magnetic[title="Instagram"]::after {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.mini-magnetic:hover {
+  transform: translateY(-15px) scale(1.1);
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.mini-magnetic:hover::after {
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.mini-magnetic:hover .fab {
+  transform: scale(1.2) translateY(-2px);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  .insane-contact-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 6rem;
+  }
+
+  .contact-left-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-right-col {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .insane-title {
+    font-size: 4.5rem;
+  }
+
+  .social-matrix {
+    width: 100%;
+    justify-content: center;
+    margin-top: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-marquee-row {
+    font-size: 8rem;
+  }
+
+  .insane-title {
+    font-size: 3.5rem;
+  }
+
+  .magnetic-orb {
+    width: 240px;
+    height: 240px;
+  }
+
+  .orb-icon {
+    font-size: 2.5rem;
+  }
+
+  .orb-label {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-marquee-row {
+    font-size: 5rem;
+  }
+
+  .insane-title {
+    font-size: 2.8rem;
+    letter-spacing: -1px;
+  }
+
+  .insane-subtitle {
+    font-size: 1rem;
+    padding: 0 1rem;
+    opacity: 0.8;
+  }
+
+  .contact-right-col {
+    gap: 1.5rem;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .magnetic-orb {
+    width: 100%;
+    height: 140px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .orb-content {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1.5rem;
+    text-align: left;
+  }
+  
+  .orb-content > div {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .orb-icon {
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
+
+  .orb-label {
+    font-size: 1rem;
+    margin-bottom: 2px;
+    white-space: nowrap;
+  }
+
+  .orb-detail {
+    background: transparent;
+    padding: 0;
+    font-size: 0.75rem;
+    opacity: 0.7;
+    white-space: normal;
+    word-break: break-word;
+    max-width: 100%;
+    line-height: 1.3;
+  }
+
+  .social-matrix {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .mini-magnetic {
+    width: 60px;
+    height: 60px;
+  }
+
+  .mini-magnetic svg {
+    width: 28px;
+    height: 28px;
+  }
+}

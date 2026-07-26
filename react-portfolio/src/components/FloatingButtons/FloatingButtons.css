@@ -1,0 +1,184 @@
+.cyber-node-container {
+  position: fixed;
+  bottom: 0px; /* Absolute bottom corner */
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  perspective: 1000px;
+}
+
+.whatsapp-float { left: 0px; } /* Absolute edge */
+.email-float { right: 0px; } /* Absolute edge */
+
+/* NODE RINGS WRAPPER (3D ORBITALS) */
+.node-rings-wrapper {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  animation: nodeFloat 4s ease-in-out infinite;
+}
+
+@keyframes nodeFloat {
+  0%, 100% { transform: translateY(0) rotateX(0deg); }
+  50% { transform: translateY(-10px) rotateX(10deg); }
+}
+
+.orbital-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.h-ring {
+  border-left: 3px solid #25d366;
+  border-right: 3px solid #25d366;
+  animation: orbitH 3s linear infinite;
+}
+
+.email-float .h-ring {
+  border-left-color: #ec4899;
+  border-right-color: #ec4899;
+}
+
+.v-ring {
+  border-top: 2px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+  transform: rotateY(70deg);
+  animation: orbitV 4s linear infinite;
+}
+
+@keyframes orbitH {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbitV {
+  from { transform: rotateY(70deg) rotateZ(0deg); }
+  to { transform: rotateY(70deg) rotateZ(360deg); }
+}
+
+/* NODE CORE (LIQUID GLASS) */
+.node-core {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  background: rgba(15, 15, 25, 0.7);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    inset 0 0 15px rgba(255, 255, 255, 0.1),
+    0 0 20px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  overflow: hidden;
+  z-index: 10;
+}
+
+.whatsapp-float .node-core { border-color: rgba(37, 211, 102, 0.4); }
+.email-float .node-core { border-color: rgba(236, 72, 153, 0.4); }
+
+.node-glare {
+  position: absolute;
+  top: 5%;
+  left: 20%;
+  width: 60%;
+  height: 30%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.4), transparent);
+  border-radius: 50%;
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.node-core a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+.node-core i {
+  font-size: 1.5rem;
+  transition: all 0.4s ease;
+  filter: drop-shadow(0 0 5px currentColor);
+}
+
+/* NODE LABEL */
+.node-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.label-code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 1px;
+}
+
+.label-text {
+  font-size: 0.7rem;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* HOVER STATES */
+.cyber-node-container:hover .node-core {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+  box-shadow: 0 0 30px currentColor;
+}
+
+.whatsapp-float:hover .node-core { color: #25d366; box-shadow: 0 0 30px rgba(37, 211, 102, 0.5); }
+.email-float:hover .node-core { color: #ec4899; box-shadow: 0 0 30px rgba(236, 72, 153, 0.5); }
+
+.cyber-node-container:hover .node-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cyber-node-container:hover .orbital-ring {
+  border-color: rgba(255, 255, 255, 0.8);
+  transform: scale(1.3);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .whatsapp-float { left: 15px; } /* Even tighter on mobile */
+  .email-float { right: 15px; }
+
+  .node-rings-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .node-core {
+    width: 45px;
+    height: 45px;
+  }
+
+  .node-label { display: none; }
+}

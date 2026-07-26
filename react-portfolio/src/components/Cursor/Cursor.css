@@ -1,0 +1,105 @@
+.custom-cursor-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10000;
+  overflow: hidden;
+}
+
+/* Central Precise Dot */
+.cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10003;
+  box-shadow: 0 0 10px #fff, 0 0 20px rgba(168, 85, 247, 0.8);
+}
+
+/* Outer Dynamic Ring */
+.cursor-ring {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(168, 85, 247, 0.6);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10002;
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+}
+
+.cursor-ring::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: #ec4899;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px #ec4899;
+}
+
+/* Ambient Glow Aura */
+.cursor-aura {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10001;
+  filter: blur(5px);
+}
+
+/* Crazy Ghost Trails */
+.cursor-trail {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: rgba(168, 85, 247, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  filter: blur(2px);
+}
+
+.trail-1 {
+  background: rgba(236, 72, 153, 0.2);
+  width: 10px;
+  height: 10px;
+}
+
+.trail-2 {
+  background: rgba(59, 130, 246, 0.15);
+  width: 14px;
+  height: 14px;
+}
+
+/* Interactive States */
+body:has(a:hover) .cursor-ring,
+body:has(button:hover) .cursor-ring {
+  width: 60px;
+  height: 60px;
+  border-color: rgba(236, 72, 153, 0.8);
+  border-width: 3px;
+}
+
+body:has(a:hover) .cursor-dot,
+body:has(button:hover) .cursor-dot {
+  background: #ec4899;
+  box-shadow: 0 0 15px #ec4899;
+}
+
+/* Hide cursor on mobile - custom cursors are for desktop */
+@media (max-width: 1024px) {
+  .custom-cursor-wrapper {
+    display: none;
+  }
+}
