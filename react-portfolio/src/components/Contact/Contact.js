@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react';
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import './Contact.css';
 
 // Custom hook for Magnetic Button Physics
+// eslint-disable-next-line no-unused-vars
 const MagneticOrb = ({ children, color, href }) => {
   const ref = useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });

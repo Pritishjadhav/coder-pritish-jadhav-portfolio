@@ -49,6 +49,7 @@ const Navbar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  // eslint-disable-next-line no-unused-vars
   const navVariants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: {

@@ -80,9 +80,9 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.4, type: "spring" }}
             >
               <span className="cyber-role">Full Stack Developer</span>
-              <span className="role-divider">///</span>
+              <span className="role-divider">&#47;&#47;&#47;</span>
               <span className="cyber-role">Data Science Architect</span>
-              <span className="role-divider">///</span>
+              <span className="role-divider">&#47;&#47;&#47;</span>
               <span className="cyber-role">DBA Expert</span>
             </motion.div>
 
