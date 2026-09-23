@@ -146,9 +146,9 @@
 
 .name-glitch-wrapper {
   position: relative;
-  font-size: 5.5rem;
+  font-size: 4.2rem;
   font-weight: 900;
-  letter-spacing: -2px;
+  letter-spacing: -1px;
 }
 
 .name-gradient {
@@ -252,83 +252,94 @@
 }
 
 /* NEW: Stats Grid & Glassmorphism */
-  .hero-stats-grid {
-    display: flex;
-    justify-content: center;
-    gap: 1.2rem;
-    margin-top: 1.5rem;
-    width: 100%;
-    max-width: 480px; /* Keep them compact */
-  }
+.hero-stats-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 480px;
+  /* Keep them compact */
+}
 
-  .glass-panel {
-    background: rgba(10, 10, 15, 0.4); /* Darker, sleeker glass */
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(168, 85, 247, 0.15); /* Subtle purple tint on border */
-    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.4);
-  }
-  
-  .stat-card {
-    padding: 0.8rem 1rem; /* Much smaller padding */
-    border-radius: 8px; /* Sharper corners */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center align text inside small card */
-    justify-content: center;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    flex: 1; /* Ensure all three flex items are equal width */
-  }
-  
-  .stat-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(
-      to right,
+.glass-panel {
+  background: rgba(10, 10, 15, 0.4);
+  /* Darker, sleeker glass */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(168, 85, 247, 0.15);
+  /* Subtle purple tint on border */
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.4);
+}
+
+.stat-card {
+  padding: 0.8rem 1rem;
+  /* Much smaller padding */
+  border-radius: 8px;
+  /* Sharper corners */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Center align text inside small card */
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  /* Ensure all three flex items are equal width */
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right,
       transparent,
-      rgba(168, 85, 247, 0.1), /* Subtle purple sweep */
-      transparent
-    );
-    transform: skewX(-20deg);
-    transition: all 0.5s ease;
-  }
-  
-  .stat-card:hover::before {
-    left: 150%;
-  }
-  
-  .stat-card:hover {
-    transform: translateY(-3px); /* Subtle lift */
-    border-color: rgba(168, 85, 247, 0.5);
-    box-shadow: 0 10px 25px rgba(168, 85, 247, 0.2);
-  }
-  
-  .stat-number {
-    font-size: 1.8rem; /* Smaller font size */
-    font-weight: 900;
-    background: linear-gradient(135deg, #a855f7, #ec4899);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    line-height: 1;
-    margin-bottom: 0.2rem;
-    font-family: 'Space Grotesk', sans-serif;
-  }
-  
-  .stat-label {
-    font-size: 0.75rem; /* Smaller label */
-    color: #d1d5db; /* Slightly brighter text for contrast against dark glass */
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px; /* Tighter spacing */
-    text-align: center;
-  }
+      rgba(168, 85, 247, 0.1),
+      /* Subtle purple sweep */
+      transparent);
+  transform: skewX(-20deg);
+  transition: all 0.5s ease;
+}
+
+.stat-card:hover::before {
+  left: 150%;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  /* Subtle lift */
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 10px 25px rgba(168, 85, 247, 0.2);
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  /* Smaller font size */
+  font-weight: 900;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  margin-bottom: 0.2rem;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  /* Smaller label */
+  color: #d1d5db;
+  /* Slightly brighter text for contrast against dark glass */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  /* Tighter spacing */
+  text-align: center;
+}
 
 /* Social Reactor */
 .hero-social-reactor {
@@ -384,7 +395,8 @@
   position: relative;
   perspective: 2000px;
   order: 1;
-  margin-top: -60px; /* Moves the profile photo up */
+  margin-top: -60px;
+  /* Moves the profile photo up */
 }
 
 .profile-cyber-container {
@@ -408,9 +420,17 @@
 }
 
 @keyframes auroraFlow {
-  0% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(180deg) scale(1.1); }
-  100% { transform: rotate(360deg) scale(1); }
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
 }
 
 /* Holographic Rings */
@@ -459,18 +479,33 @@
 }
 
 @keyframes ringRotateX {
-  from { transform: rotateX(70deg) rotateZ(0deg); }
-  to { transform: rotateX(70deg) rotateZ(360deg); }
+  from {
+    transform: rotateX(70deg) rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateX(70deg) rotateZ(360deg);
+  }
 }
 
 @keyframes ringRotateY {
-  from { transform: rotateY(70deg) rotateZ(0deg); }
-  to { transform: rotateY(70deg) rotateZ(360deg); }
+  from {
+    transform: rotateY(70deg) rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateY(70deg) rotateZ(360deg);
+  }
 }
 
 @keyframes ringRotateZ {
-  from { transform: rotateZ(0deg); }
-  to { transform: rotateZ(360deg); }
+  from {
+    transform: rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateZ(360deg);
+  }
 }
 
 /* Subatomic Particle Orbits */
@@ -479,7 +514,8 @@
   width: 120%;
   height: 120%;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.05); /* Very subtle orbit path */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  /* Very subtle orbit path */
   pointer-events: none;
   display: flex;
   justify-content: center;
@@ -522,8 +558,13 @@
 }
 
 @keyframes orbitRotateV {
-  from { transform: rotateX(90deg) rotateZ(0deg); }
-  to { transform: rotateX(90deg) rotateZ(360deg); }
+  from {
+    transform: rotateX(90deg) rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateX(90deg) rotateZ(360deg);
+  }
 }
 
 /* Horizontal Orbit */
@@ -533,8 +574,13 @@
 }
 
 @keyframes orbitRotateH {
-  from { transform: rotateY(90deg) rotateZ(0deg); }
-  to { transform: rotateY(90deg) rotateZ(360deg); }
+  from {
+    transform: rotateY(90deg) rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateY(90deg) rotateZ(360deg);
+  }
 }
 
 /* Diagonal Orbit 1 */
@@ -544,8 +590,13 @@
 }
 
 @keyframes orbitRotateD1 {
-  from { transform: rotateX(45deg) rotateY(45deg) rotateZ(0deg); }
-  to { transform: rotateX(45deg) rotateY(45deg) rotateZ(360deg); }
+  from {
+    transform: rotateX(45deg) rotateY(45deg) rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateX(45deg) rotateY(45deg) rotateZ(360deg);
+  }
 }
 
 /* Diagonal Orbit 2 */
@@ -555,8 +606,13 @@
 }
 
 @keyframes orbitRotateD2 {
-  from { transform: rotateX(-45deg) rotateY(45deg) rotateZ(0deg); }
-  to { transform: rotateX(-45deg) rotateY(45deg) rotateZ(360deg); }
+  from {
+    transform: rotateX(-45deg) rotateY(45deg) rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateX(-45deg) rotateY(45deg) rotateZ(360deg);
+  }
 }
 
 .particle-orbit .particle-core {
@@ -575,14 +631,44 @@
   box-shadow: 0 0 15px #a855f7;
 }
 
-.bit-1 { top: 0; left: 10%; transform: rotateX(45deg) rotateY(45deg); animation: float3D 6s infinite alternate; }
-.bit-2 { bottom: 10%; right: 5%; transform: rotateX(-45deg) rotateZ(30deg); animation: float3D 8s infinite alternate-reverse; }
-.bit-3 { top: 30%; right: -10%; width: 10px; height: 10px; animation: float3D 5s infinite alternate; }
-.bit-4 { bottom: 0; left: -5%; width: 8px; height: 8px; animation: float3D 7s infinite alternate-reverse; }
+.bit-1 {
+  top: 0;
+  left: 10%;
+  transform: rotateX(45deg) rotateY(45deg);
+  animation: float3D 6s infinite alternate;
+}
+
+.bit-2 {
+  bottom: 10%;
+  right: 5%;
+  transform: rotateX(-45deg) rotateZ(30deg);
+  animation: float3D 8s infinite alternate-reverse;
+}
+
+.bit-3 {
+  top: 30%;
+  right: -10%;
+  width: 10px;
+  height: 10px;
+  animation: float3D 5s infinite alternate;
+}
+
+.bit-4 {
+  bottom: 0;
+  left: -5%;
+  width: 8px;
+  height: 8px;
+  animation: float3D 7s infinite alternate-reverse;
+}
 
 @keyframes float3D {
-  from { transform: translateZ(50px) rotate(0deg); }
-  to { transform: translateZ(-50px) rotate(360deg); }
+  from {
+    transform: translateZ(50px) rotate(0deg);
+  }
+
+  to {
+    transform: translateZ(-50px) rotate(360deg);
+  }
 }
 
 /* Photo Frame */
@@ -641,8 +727,17 @@
 }
 
 @keyframes scanMove {
-  0%, 100% { top: 0%; opacity: 0; }
-  50% { top: 100%; opacity: 1; }
+
+  0%,
+  100% {
+    top: 0%;
+    opacity: 0;
+  }
+
+  50% {
+    top: 100%;
+    opacity: 1;
+  }
 }
 
 /* Corner Brackets */
@@ -654,10 +749,33 @@
   z-index: 15;
 }
 
-.top-left { top: 10px; left: 10px; border-right: none; border-bottom: none; }
-.top-right { top: 10px; right: 10px; border-left: none; border-bottom: none; }
-.bottom-left { bottom: 10px; left: 10px; border-right: none; border-top: none; }
-.bottom-right { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+.top-left {
+  top: 10px;
+  left: 10px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.top-right {
+  top: 10px;
+  right: 10px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.bottom-left {
+  bottom: 10px;
+  left: 10px;
+  border-right: none;
+  border-top: none;
+}
+
+.bottom-right {
+  bottom: 10px;
+  right: 10px;
+  border-left: none;
+  border-top: none;
+}
 
 /* Data Chips */
 .data-chip {
@@ -689,7 +807,8 @@
   letter-spacing: 1px;
 }
 
-.chip-status, .chip-stat {
+.chip-status,
+.chip-stat {
   font-size: 1.2rem;
   font-weight: 800;
   color: #fff;
@@ -736,7 +855,7 @@
   }
 
   .name-glitch-wrapper {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
   }
 
   .profile-cyber-container {
@@ -770,7 +889,7 @@
   }
 
   .name-glitch-wrapper {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
     line-height: 1.2;
   }
 
@@ -793,7 +912,8 @@
   }
 
   .hero-visual-col {
-    margin-top: 40px; /* Reset the negative margin on Mobile to avoid hitting the header */
+    margin-top: 40px;
+    /* Reset the negative margin on Mobile to avoid hitting the header */
   }
 
   .hero-action-matrix {
@@ -823,7 +943,7 @@
 
 @media (max-width: 480px) {
   .name-glitch-wrapper {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 
   .profile-cyber-container {

@@ -20,7 +20,7 @@
   gap: 20px;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.15;
+  opacity: 0.05;
 }
 
 .contact-marquee-row {
@@ -135,10 +135,11 @@
   justify-content: center;
   text-decoration: none;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(15, 15, 20, 0.75); /* Added dark background for contrast */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), inset 0 0 0 2px transparent;
-  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+  transition: box-shadow 0.4s ease, border-color 0.4s ease, background 0.4s ease;
   overflow: hidden;
 }
 

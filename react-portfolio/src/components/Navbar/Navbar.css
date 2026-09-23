@@ -31,17 +31,28 @@
 }
 
 .logo-dev-tag {
-  font-size: 0.75rem;
-  font-weight: 950;
-  letter-spacing: 4px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 6px;
   text-transform: uppercase;
-  background: linear-gradient(90deg, #00f2ff, #a855f7, #ec4899);
+  background: linear-gradient(90deg, #3b82f6, #a855f7);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   width: fit-content;
-  margin-top: 2px;
-  filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.3));
+  margin-top: 4px;
+  transform-origin: left center;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-wrapper:hover .logo-dev-tag {
+  letter-spacing: 12px;
+  transform: scale(1.2) translateX(4px);
+  background: #00f2ff;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 15px rgba(0, 242, 255, 1)) drop-shadow(0 0 5px #ffffff);
 }
 
 .navbar .container {
@@ -60,34 +71,70 @@
   align-items: center;
   gap: 1.2rem;
   cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.logo-wrapper:hover {
+  transform: translateY(-2px);
+}
+
+@keyframes logo-float-pulse {
+  0%, 100% {
+    transform: scale(1.15) rotate(-6deg) translateY(0);
+    box-shadow: 0 12px 30px rgba(168, 85, 247, 0.5), inset 0 0 15px rgba(0, 242, 255, 0.4);
+    text-shadow: 0 0 15px rgba(0, 242, 255, 0.9);
+  }
+  50% {
+    transform: scale(1.15) rotate(-2deg) translateY(-5px);
+    box-shadow: 0 18px 45px rgba(168, 85, 247, 0.7), inset 0 0 25px rgba(0, 242, 255, 0.7);
+    text-shadow: 0 0 25px rgba(0, 242, 255, 1);
+  }
+}
+
+.logo-wrapper:hover .logo {
+  animation: logo-float-pulse 2s infinite ease-in-out;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(168, 85, 247, 0.5));
+  border-color: rgba(0, 242, 255, 0.7);
+  color: #00f2ff;
 }
 
 .logo {
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, #a855f7, #ec4899);
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(168, 85, 247, 0.2));
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
-  font-weight: 900;
-  font-size: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+  font-weight: 700;
+  font-size: 1.4rem;
+  font-family: 'Inter', sans-serif;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.15);
+  backdrop-filter: blur(10px);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .logo-name {
-  font-size: 1.6rem;
-  font-weight: 900;
-  letter-spacing: -1px;
+  font-size: 1.5rem;
+  display: flex;
+  gap: 6px;
+}
+
+.name-part-1 {
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
 }
 
 .name-part-2 {
-  background: linear-gradient(135deg, #a855f7, #3b82f6);
+  font-weight: 400;
+  background: linear-gradient(135deg, #3b82f6, #a855f7);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
 }
 
 /* NAVIGATION LINKS */
@@ -166,7 +213,8 @@
   }
 
   .navbar .container {
-    height: 70px; /* This is the actual visible top bar height */
+    height: 70px;
+    /* This is the actual visible top bar height */
     padding: 0 1.5rem;
     background: rgba(10, 10, 15, 0.8);
     backdrop-filter: blur(20px);
@@ -174,7 +222,7 @@
     border-bottom: 1.2px solid rgba(168, 85, 247, 0.4);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   }
-  
+
   .hamburger {
     display: flex;
     position: relative;
@@ -198,13 +246,16 @@
     z-index: 2000;
     box-shadow: 20px 0 60px rgba(0, 0, 0, 0.9);
     overflow-y: auto;
-    scrollbar-width: none; /* Hide scrollbar Firefox */
-    -ms-overflow-style: none; /* Hide scrollbar IE/Edge */
+    scrollbar-width: none;
+    /* Hide scrollbar Firefox */
+    -ms-overflow-style: none;
+    /* Hide scrollbar IE/Edge */
     perspective: 1000px;
   }
 
   .nav-links.mobile-sidebar::-webkit-scrollbar {
-    display: none; /* Hide scrollbar Chrome/Safari */
+    display: none;
+    /* Hide scrollbar Chrome/Safari */
   }
 
   .mobile-backdrop {
@@ -296,13 +347,13 @@
   .nav-links {
     width: 75%;
   }
-  
+
   .nav-links a {
     font-size: 1.1rem;
     padding: 1rem 0.8rem;
     letter-spacing: 2px;
   }
-  
+
   .logo-name {
     font-size: 1.2rem;
   }

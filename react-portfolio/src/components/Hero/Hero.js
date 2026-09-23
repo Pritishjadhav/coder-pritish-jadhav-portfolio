@@ -69,7 +69,7 @@ const Hero = () => {
             >
               <div className="greeting-text">Hello, I am</div>
               <div className="name-glitch-wrapper">
-                <span className="name-gradient">Mr. PRITISH JADHAV</span>
+                <span className="name-gradient" style={{ filter: "drop-shadow(0 4px 10px rgba(168, 85, 247, 0.4))" }}>Mr. Pritish Jadhav</span>
               </div>
             </motion.h1>
 
@@ -124,7 +124,7 @@ const Hero = () => {
                 <i className="fab fa-github text-white"></i>
               </a>
               <a href="https://x.com/Pritish2006" target="_blank" rel="noopener noreferrer" title="Twitter">
-                <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: '20px', height: '20px', color: '#60a5fa' }}><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: '20px', height: '20px', color: '#60a5fa' }}><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
               </a>
               <a href="https://www.instagram.com/jadhav_pritish_26?igsh=aDNmY2ZzdGk4aTVz" target="_blank" rel="noopener noreferrer" title="Instagram">
                 <i className="fab fa-instagram text-pink-500"></i>
@@ -176,11 +176,11 @@ const Hero = () => {
               <div className="cyber-photo-frame">
                 <div className="frame-internal-glow"></div>
                 <img src="/images/pritish-photo.jpg" alt="Pritish Jadhav" className="profile-img-main" />
-                
+
                 {/* Data Overlays */}
                 <div className="photo-glitch-overlay"></div>
                 <div className="photo-scan-bar"></div>
-                
+
                 {/* Corner Accents */}
                 <div className="corner-bracket top-left"></div>
                 <div className="corner-bracket top-right"></div>
@@ -189,7 +189,7 @@ const Hero = () => {
               </div>
 
               {/* Floating Data Widgets */}
-              <motion.div 
+              <motion.div
                 className="data-chip chip-left glass-panel"
                 animate={{ x: [0, -10, 0], y: [0, 15, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
@@ -198,7 +198,7 @@ const Hero = () => {
                 <div className="chip-status">TRAINING</div>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 className="data-chip chip-right glass-panel"
                 animate={{ x: [0, 10, 0], y: [0, -15, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "linear", delay: 1 }}
@@ -210,7 +210,7 @@ const Hero = () => {
             </motion.div>
 
             {/* NEW: Stats Grid (Moved under Profile) */}
-            <motion.div 
+            <motion.div
               className="hero-stats-grid"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -221,7 +221,7 @@ const Hero = () => {
                 <span className="stat-label">Projects Deployed</span>
               </div>
               <div className="stat-card glass-panel">
-                <span className="stat-number">1+</span>
+                <span className="stat-number">2+</span>
                 <span className="stat-label">Years Experience</span>
               </div>
               <div className="stat-card glass-panel">
