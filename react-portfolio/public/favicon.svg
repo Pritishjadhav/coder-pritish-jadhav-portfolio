@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a14" />
+      <stop offset="50%" stop-color="#121024" />
+      <stop offset="100%" stop-color="#07070d" />
+    </linearGradient>
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2ff" />
+      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="60%" stop-color="#f0f6ff" />
+      <stop offset="100%" stop-color="#a5f3fc" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Base container matching navbar logo -->
+  <rect x="2" y="2" width="60" height="60" rx="15" fill="url(#bgGrad)" stroke="url(#borderGrad)" stroke-width="2.5" />
+  
+  <!-- Subtle inner glow -->
+  <rect x="3.5" y="3.5" width="57" height="57" rx="13.5" fill="none" stroke="#a855f7" stroke-width="0.8" stroke-opacity="0.5" />
+
+  <!-- PJ Text -->
+  <text 
+    x="50%" 
+    y="54%" 
+    text-anchor="middle" 
+    dominant-baseline="central" 
+    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif" 
+    font-weight="900" 
+    font-size="31" 
+    letter-spacing="-0.5px"
+    fill="url(#textGrad)"
+    filter="url(#glow)">PJ</text>
+</svg>

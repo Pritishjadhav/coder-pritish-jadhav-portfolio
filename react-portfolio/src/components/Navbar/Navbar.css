@@ -31,28 +31,49 @@
 }
 
 .logo-dev-tag {
-  font-size: 0.7rem;
+  font-size: 0.74rem;
   font-weight: 800;
-  letter-spacing: 6px;
+  letter-spacing: 5px;
   text-transform: uppercase;
-  background: linear-gradient(90deg, #3b82f6, #a855f7);
+  background: linear-gradient(
+    90deg,
+    #00f2fe 0%,
+    #38bdf8 25%,
+    #c084fc 50%,
+    #f43f5e 75%,
+    #00f2fe 100%
+  );
+  background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   width: fit-content;
   margin-top: 4px;
   transform-origin: left center;
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: devFlowShimmer 3.5s linear infinite;
+  filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.55));
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes devFlowShimmer {
+  0% {
+    background-position: 0% center;
+    filter: drop-shadow(0 0 6px rgba(0, 242, 254, 0.55));
+  }
+  50% {
+    background-position: 100% center;
+    filter: drop-shadow(0 0 12px rgba(192, 132, 252, 0.75)) drop-shadow(0 0 3px rgba(255, 255, 255, 0.6));
+  }
+  100% {
+    background-position: 200% center;
+    filter: drop-shadow(0 0 6px rgba(0, 242, 254, 0.55));
+  }
 }
 
 .logo-wrapper:hover .logo-dev-tag {
-  letter-spacing: 12px;
-  transform: scale(1.2) translateX(4px);
-  background: #00f2ff;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 15px rgba(0, 242, 255, 1)) drop-shadow(0 0 5px #ffffff);
+  letter-spacing: 6.5px;
+  transform: scale(1.06);
+  filter: drop-shadow(0 0 16px rgba(0, 242, 254, 0.95)) drop-shadow(0 0 6px #ffffff);
 }
 
 .navbar .container {
@@ -356,5 +377,10 @@
 
   .logo-name {
     font-size: 1.2rem;
+  }
+
+  .logo-dev-tag {
+    font-size: 0.65rem;
+    letter-spacing: 3.5px;
   }
 }

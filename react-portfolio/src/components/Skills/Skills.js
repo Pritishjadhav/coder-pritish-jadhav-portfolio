@@ -6,22 +6,28 @@ const skillsData = [
   { name: 'HTML5', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', shadow: '#E34F26', category: 'Frontend' },
   { name: 'CSS3', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg', shadow: '#1572B6', category: 'Frontend' },
   { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', shadow: '#F7DF1E', category: 'Frontend' },
+  { name: 'TypeScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg', shadow: '#3178C6', category: 'Frontend' },
   { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', shadow: '#61DAFB', category: 'Frontend' },
   { name: 'Node.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', shadow: '#339933', category: 'Backend' },
   { name: 'Express.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg', shadow: '#FFFFFF', category: 'Backend' },
   { name: 'MongoDB', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg', shadow: '#47A248', category: 'Database' },
+  { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg', shadow: '#4169E1', category: 'Database' },
   { name: 'MySQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg', shadow: '#4479A1', category: 'Database' },
+  { name: 'Prisma', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg', shadow: '#5A67D8', category: 'Database' },
+  { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg', shadow: '#2496ED', category: 'DevOps' },
+  { name: 'AWS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg', shadow: '#FF9900', category: 'Cloud' },
   { name: 'Python', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg', shadow: '#3776AB', category: 'Language' },
+  { name: 'Machine Learning', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg', shadow: '#FF6F00', category: 'AI & ML' },
   { name: 'C', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg', shadow: '#A8B9CC', category: 'Language' },
   { name: 'C++', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg', shadow: '#00599C', category: 'Language' },
   { name: 'Git', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', shadow: '#F05032', category: 'Tools' },
   { name: 'GitHub', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', shadow: '#FFFFFF', category: 'Tools' },
 ];
 
-// Split array for the honeycomb rows
-const row1 = skillsData.slice(0, 4);
-const row2 = skillsData.slice(4, 9);
-const row3 = skillsData.slice(9, 13);
+// Split array for the honeycomb rows (6, 7, 6)
+const row1 = skillsData.slice(0, 6);
+const row2 = skillsData.slice(6, 13);
+const row3 = skillsData.slice(13, 19);
 
 const Hexagon = ({ skill, index }) => {
   return (
@@ -109,13 +115,13 @@ const Skills = () => {
 
           <div className="honeycomb-row row-2">
             {row2.map((skill, i) => (
-              <Hexagon key={skill.name} skill={skill} index={i + 4} />
+              <Hexagon key={skill.name} skill={skill} index={i + 6} />
             ))}
           </div>
 
           <div className="honeycomb-row row-3">
             {row3.map((skill, i) => (
-              <Hexagon key={skill.name} skill={skill} index={i + 9} />
+              <Hexagon key={skill.name} skill={skill} index={i + 13} />
             ))}
           </div>
 

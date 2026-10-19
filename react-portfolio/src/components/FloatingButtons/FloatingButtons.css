@@ -1,184 +1,344 @@
-.cyber-node-container {
+/* ============================================================
+   PREMIUM FLOATING ACTION BUTTONS (WHATSAPP & EMAIL)
+   ============================================================ */
+
+.floating-btn-wrapper {
   position: fixed;
-  bottom: 0px; /* Absolute bottom corner */
-  z-index: 2000;
+  bottom: 28px;
+  z-index: 9999;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
-  perspective: 1000px;
 }
 
-.whatsapp-float { left: 0px; } /* Absolute edge */
-.email-float { right: 0px; } /* Absolute edge */
+.whatsapp-wrapper {
+  left: 28px;
+  align-items: flex-start;
+}
 
-/* NODE RINGS WRAPPER (3D ORBITALS) */
-.node-rings-wrapper {
+.email-wrapper {
+  right: 28px;
+  align-items: flex-end;
+}
+
+/* MAIN BUTTON BASE */
+.floating-action-btn {
   position: relative;
-  width: 70px;
-  height: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform-style: preserve-3d;
-  animation: nodeFloat 4s ease-in-out infinite;
-}
-
-@keyframes nodeFloat {
-  0%, 100% { transform: translateY(0) rotateX(0deg); }
-  50% { transform: translateY(-10px) rotateX(10deg); }
-}
-
-.orbital-ring {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
-  border: 1.5px solid rgba(255, 255, 255, 0.1);
-  pointer-events: none;
-}
-
-.h-ring {
-  border-left: 3px solid #25d366;
-  border-right: 3px solid #25d366;
-  animation: orbitH 3s linear infinite;
-}
-
-.email-float .h-ring {
-  border-left-color: #ec4899;
-  border-right-color: #ec4899;
-}
-
-.v-ring {
-  border-top: 2px solid rgba(255, 255, 255, 0.4);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
-  transform: rotateY(70deg);
-  animation: orbitV 4s linear infinite;
-}
-
-@keyframes orbitH {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes orbitV {
-  from { transform: rotateY(70deg) rotateZ(0deg); }
-  to { transform: rotateY(70deg) rotateZ(360deg); }
-}
-
-/* NODE CORE (LIQUID GLASS) */
-.node-core {
-  position: absolute;
-  width: 55px;
-  height: 55px;
-  background: rgba(15, 15, 25, 0.7);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 
-    inset 0 0 15px rgba(255, 255, 255, 0.1),
-    0 0 20px rgba(0, 0, 0, 0.5);
-  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-  overflow: hidden;
-  z-index: 10;
-}
-
-.whatsapp-float .node-core { border-color: rgba(37, 211, 102, 0.4); }
-.email-float .node-core { border-color: rgba(236, 72, 153, 0.4); }
-
-.node-glare {
-  position: absolute;
-  top: 5%;
-  left: 20%;
-  width: 60%;
-  height: 30%;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.4), transparent);
-  border-radius: 50%;
-  filter: blur(2px);
-  pointer-events: none;
-}
-
-.node-core a {
-  width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  color: #fff;
+  cursor: pointer;
+  outline: none;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.node-core i {
-  font-size: 1.5rem;
-  transition: all 0.4s ease;
-  filter: drop-shadow(0 0 5px currentColor);
+.btn-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
 }
 
-/* NODE LABEL */
-.node-label {
+/* ------------------------------------------------------------
+   WHATSAPP BUTTON (EMERALD / LUXURY NEON)
+   ------------------------------------------------------------ */
+.whatsapp-btn {
+  background: radial-gradient(circle at 30% 30%, rgba(37, 211, 102, 0.22), rgba(6, 40, 24, 0.88));
+  border: 1.5px solid rgba(37, 211, 102, 0.5);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.6),
+    0 2px 8px rgba(37, 211, 102, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.35);
+}
+
+.whatsapp-btn .btn-icon-box i {
+  font-size: 1.65rem;
+  color: #25D366;
+  filter: drop-shadow(0 0 8px rgba(37, 211, 102, 0.65));
+  transition: all 0.35s ease;
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-5px) scale(1.08);
+  background: radial-gradient(circle at 30% 30%, rgba(37, 211, 102, 0.38), rgba(4, 52, 28, 0.95));
+  border-color: #25D366;
+  box-shadow: 
+    0 14px 32px rgba(0, 0, 0, 0.7),
+    0 0 28px rgba(37, 211, 102, 0.65),
+    inset 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+.whatsapp-btn:hover .btn-icon-box i {
+  color: #ffffff;
+  transform: scale(1.15) rotate(5deg);
+  filter: drop-shadow(0 0 12px #25D366);
+}
+
+/* ------------------------------------------------------------
+   EMAIL BUTTON (CYBER INDIGO / VIOLET)
+   ------------------------------------------------------------ */
+.email-btn {
+  background: radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.22), rgba(20, 14, 48, 0.88));
+  border: 1.5px solid rgba(168, 85, 247, 0.5);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.6),
+    0 2px 8px rgba(168, 85, 247, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.35);
+}
+
+.email-btn .btn-icon-box i {
+  font-size: 1.45rem;
+  color: #c084fc;
+  filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.65));
+  transition: all 0.35s ease;
+}
+
+.email-btn:hover {
+  transform: translateY(-5px) scale(1.08);
+  background: radial-gradient(circle at 30% 30%, rgba(168, 85, 247, 0.38), rgba(30, 16, 75, 0.95));
+  border-color: #c084fc;
+  box-shadow: 
+    0 14px 32px rgba(0, 0, 0, 0.7),
+    0 0 28px rgba(168, 85, 247, 0.65),
+    inset 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+.email-btn:hover .btn-icon-box i {
+  color: #ffffff;
+  transform: scale(1.15) translateY(-1px);
+  filter: drop-shadow(0 0 12px #c084fc);
+}
+
+/* ------------------------------------------------------------
+   AMBIENT WAVE PULSE
+   ------------------------------------------------------------ */
+.btn-ambient-pulse {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.whatsapp-pulse {
+  border: 1.5px solid rgba(37, 211, 102, 0.55);
+  animation: pulseRippleWhatsApp 3.2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
+
+.email-pulse {
+  border: 1.5px solid rgba(168, 85, 247, 0.55);
+  animation: pulseRippleEmail 3.2s cubic-bezier(0.24, 0, 0.38, 1) infinite 1.6s;
+}
+
+@keyframes pulseRippleWhatsApp {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseRippleEmail {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* ------------------------------------------------------------
+   LIVE STATUS BEACONS
+   ------------------------------------------------------------ */
+.status-beacon {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  width: 12px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+}
+
+.beacon-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid #090a10;
+}
+
+.whatsapp-beacon .beacon-dot {
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+.email-beacon .beacon-dot {
+  background: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+}
+
+.beacon-ping {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  opacity: 0.75;
+  animation: pingAnimation 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.whatsapp-beacon .beacon-ping {
+  background: rgba(34, 197, 94, 0.6);
+}
+
+.email-beacon .beacon-ping {
+  background: rgba(56, 189, 248, 0.6);
+}
+
+@keyframes pingAnimation {
+  75%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* ------------------------------------------------------------
+   FLOATING GLASS TOOLTIPS
+   ------------------------------------------------------------ */
+.floating-tooltip {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  background: rgba(10, 12, 22, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 6px 14px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s ease;
+  white-space: nowrap;
   pointer-events: none;
+  opacity: 0;
+  transform: translateY(8px) scale(0.95);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+  z-index: 10;
 }
 
-.label-code {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.6rem;
-  color: rgba(255, 255, 255, 0.5);
-  letter-spacing: 1px;
+.whatsapp-tooltip {
+  left: 0;
+  border: 1px solid rgba(37, 211, 102, 0.35);
 }
 
-.label-text {
-  font-size: 0.7rem;
-  font-weight: 900;
-  color: #fff;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+.email-tooltip {
+  right: 0;
+  border: 1px solid rgba(168, 85, 247, 0.35);
 }
 
-/* HOVER STATES */
-.cyber-node-container:hover .node-core {
-  transform: scale(1.1);
-  background: rgba(255, 255, 255, 0.1);
-  border-color: #fff;
-  box-shadow: 0 0 30px currentColor;
+.tooltip-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff;
 }
 
-.whatsapp-float:hover .node-core { color: #25d366; box-shadow: 0 0 30px rgba(37, 211, 102, 0.5); }
-.email-float:hover .node-core { color: #ec4899; box-shadow: 0 0 30px rgba(236, 72, 153, 0.5); }
+.whatsapp-tooltip .tooltip-title {
+  color: #4ade80;
+}
 
-.cyber-node-container:hover .node-label {
+.email-tooltip .tooltip-title {
+  color: #c084fc;
+}
+
+.tooltip-sub {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.3px;
+}
+
+/* Tooltip arrow */
+.floating-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+}
+
+.whatsapp-tooltip::after {
+  left: 20px;
+  border-top: 6px solid rgba(10, 12, 22, 0.94);
+}
+
+.email-tooltip::after {
+  right: 20px;
+  border-top: 6px solid rgba(10, 12, 22, 0.94);
+}
+
+/* Tooltip Reveal on Hover */
+.floating-btn-wrapper:hover .floating-tooltip {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
-.cyber-node-container:hover .orbital-ring {
-  border-color: rgba(255, 255, 255, 0.8);
-  transform: scale(1.3);
-}
-
-/* MOBILE */
+/* ------------------------------------------------------------
+   MOBILE RESPONSIVENESS
+   ------------------------------------------------------------ */
 @media (max-width: 768px) {
-  .whatsapp-float { left: 15px; } /* Even tighter on mobile */
-  .email-float { right: 15px; }
-
-  .node-rings-wrapper {
-    width: 60px;
-    height: 60px;
+  .floating-btn-wrapper {
+    bottom: 18px;
   }
 
-  .node-core {
-    width: 45px;
-    height: 45px;
+  .whatsapp-wrapper {
+    left: 16px;
   }
 
-  .node-label { display: none; }
+  .email-wrapper {
+    right: 16px;
+  }
+
+  .floating-action-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .whatsapp-btn .btn-icon-box i {
+    font-size: 1.45rem;
+  }
+
+  .email-btn .btn-icon-box i {
+    font-size: 1.25rem;
+  }
+
+  /* Keep tooltips clean on mobile */
+  .floating-tooltip {
+    display: none;
+  }
 }

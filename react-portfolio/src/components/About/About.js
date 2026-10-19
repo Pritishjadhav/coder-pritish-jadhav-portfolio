@@ -96,30 +96,6 @@ const About = () => {
               </p>
             </motion.div>
 
-            {/* Fast Stats Dashboard */}
-            <motion.div className="stats-dashboard" variants={fadeUp}>
-              <div className="stat-pill">
-                <i className="fas fa-calendar-alt"></i>
-                <div className="stat-info">
-                  <span className="stat-val">2006</span>
-                  <span className="stat-lbl">ESTABLISHED</span>
-                </div>
-              </div>
-              <div className="stat-pill">
-                <i className="fas fa-map-marker-alt"></i>
-                <div className="stat-info">
-                  <span className="stat-val">PUNE</span>
-                  <span className="stat-lbl">BASE SECURE</span>
-                </div>
-              </div>
-              <div className="stat-pill">
-                <i className="fas fa-laptop-code"></i>
-                <div className="stat-info">
-                  <span className="stat-val">CODECHEF</span>
-                  <span className="stat-lbl">CURRENT OP</span>
-                </div>
-              </div>
-            </motion.div>
 
             {/* Core Directives (Strengths) */}
             <motion.div className="directives-section" variants={fadeUp}>

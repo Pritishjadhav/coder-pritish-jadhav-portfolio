@@ -151,7 +151,8 @@ const Navbar = () => {
                 animate="visible"
                 exit="exit"
               >
-                <div className="sidebar-header">
+                <div className="sidebar-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.8rem' }}>
+                  <div className="logo" style={{ width: '40px', height: '40px', fontSize: '1.2rem' }}>PJ</div>
                   <span className="logo-name">PRITISH</span>
                 </div>
                 {['home', 'about', 'experience', 'education', 'skills', 'contact'].map((item) => (

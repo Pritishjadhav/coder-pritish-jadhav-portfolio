@@ -92,9 +92,9 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.25, type: 'spring', bounce: 0.3 }}>
             <p className="greeting-line">Hello, I'm</p>
             <h1 className="hero-name">
-              <span className="name-top">Mr. Pritish</span>
+              <span className="name-top">Mr.</span>
               <span className="name-bottom-wrap">
-                <span className="name-bottom">Jadhav</span>
+                <span className="name-bottom">Pritish Jadhav</span>
                 <span className="name-underline"></span>
               </span>
             </h1>

@@ -184,10 +184,11 @@
   /* Pull rows into each other to lock the cells */
 }
 
-/* Force specific rows (even rows) to be perfectly centered differently if needed */
-.row-2 {
-  margin-left: 0px;
-  /* Adjust if odd/even rows need strict staggering */
+/* In a 5-6-5 honeycomb, rows naturally nestle with perfect symmetry */
+.row-1,
+.row-2,
+.row-3 {
+  transform: none;
 }
 
 /* Individual Hexagon Geometry */
@@ -343,8 +344,11 @@
     gap: 20px;
   }
 
-  .row-2 {
-    margin-left: 0;
+  .row-1,
+  .row-2,
+  .row-3 {
+    margin-left: 0 !important;
+    transform: none !important;
   }
 
   .hex-wrapper {
@@ -374,5 +378,134 @@
 
   .honeycomb-row {
     gap: 15px;
+  }
+}
+
+/* HOVER STATES FOR ULTRA HIGH-ENERGY ANIMATION */
+.hex-wrapper:hover {
+  animation-play-state: paused;
+}
+
+.hex-wrapper:hover .hex-border-pulse {
+  opacity: 1;
+}
+
+.hex-wrapper:hover .hex-outer {
+  background: linear-gradient(135deg, #ffffff, var(--hex-color));
+  filter: drop-shadow(0 0 30px var(--hex-color));
+}
+
+.hex-wrapper:hover .hex-inner {
+  background: rgba(20, 24, 42, 0.96);
+}
+
+.hex-wrapper:hover .hex-level-badge {
+  opacity: 1;
+  background: var(--hex-color);
+  color: #000000;
+  box-shadow: 0 0 10px var(--hex-color);
+}
+
+.hex-wrapper:hover .hex-glow {
+  opacity: 0.85;
+  width: 140px;
+  height: 140px;
+  filter: blur(35px);
+}
+
+.hex-wrapper:hover .hex-logo {
+  filter: drop-shadow(0 12px 25px var(--hex-color));
+  transform: scale(1.35) translateY(-5px);
+}
+
+.hex-wrapper:hover .hex-name {
+  color: #ffffff;
+  text-shadow: 0 0 14px var(--hex-color);
+  transform: translateY(2px);
+  font-size: 0.95rem;
+}
+
+.hex-wrapper:hover .hex-cat-tag {
+  opacity: 1;
+  color: #ffffff;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  .ultra-title {
+    font-size: 3.8rem;
+  }
+
+  .hex-wrapper {
+    width: 140px;
+    height: 160px;
+  }
+
+  .honeycomb-row {
+    margin-bottom: -36px;
+  }
+
+  .hex-logo {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ultra-title {
+    font-size: 2.8rem;
+  }
+
+  .skills-filter-pills {
+    gap: 0.5rem;
+  }
+
+  .filter-pill {
+    padding: 0.45rem 1.1rem;
+    font-size: 0.78rem;
+  }
+
+  .honeycomb-container {
+    padding: 2rem 0;
+    gap: 25px;
+  }
+
+  .honeycomb-row {
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    gap: 18px;
+  }
+
+  .hex-wrapper {
+    width: 125px;
+    height: 145px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ultra-title {
+    font-size: 2.2rem;
+  }
+
+  .hex-wrapper {
+    width: 105px;
+    height: 120px;
+  }
+
+  .hex-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .hex-name {
+    font-size: 0.75rem;
+  }
+
+  .hex-cat-tag {
+    font-size: 0.55rem;
+  }
+
+  .honeycomb-row {
+    gap: 12px;
   }
 }

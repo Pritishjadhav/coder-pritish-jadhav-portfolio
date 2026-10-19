@@ -5,60 +5,62 @@ import './FloatingButtons.css';
 const FloatingButtons = () => {
   return (
     <>
+      {/* WhatsApp Floating Action Button */}
       <motion.div
-        className="whatsapp-float cyber-node-container"
-        initial={{ scale: 0, x: -100 }}
-        animate={{ scale: 1, x: 0 }}
-        transition={{ delay: 1, type: "spring", stiffness: 260, damping: 20 }}
+        className="floating-btn-wrapper whatsapp-wrapper"
+        initial={{ scale: 0, opacity: 0, x: -60 }}
+        animate={{ scale: 1, opacity: 1, x: 0 }}
+        transition={{ delay: 0.6, type: "spring", stiffness: 220, damping: 18 }}
       >
-        <div className="node-rings-wrapper">
-          <div className="orbital-ring h-ring"></div>
-          <div className="orbital-ring v-ring"></div>
-          <div className="node-glare"></div>
+        <div className="floating-tooltip whatsapp-tooltip">
+          <span className="tooltip-title">WhatsApp</span>
+          <span className="tooltip-sub">Chat with Pritish</span>
         </div>
-        
-        <div className="node-core">
-          <a
-            href="https://wa.me/918605720415"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Chat on WhatsApp"
-          >
+
+        <a
+          href="https://wa.me/918605720415"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="floating-action-btn whatsapp-btn"
+          aria-label="Chat on WhatsApp"
+        >
+          <div className="btn-ambient-pulse whatsapp-pulse"></div>
+          <div className="btn-icon-box">
             <i className="fab fa-whatsapp"></i>
-          </a>
-        </div>
-        
-        <div className="node-label">
-          <span className="label-code">COMMS_LINK:</span>
-          <span className="label-text">WHATSAPP</span>
-        </div>
+          </div>
+          <span className="status-beacon whatsapp-beacon">
+            <span className="beacon-ping"></span>
+            <span className="beacon-dot"></span>
+          </span>
+        </a>
       </motion.div>
 
+      {/* Email Floating Action Button */}
       <motion.div
-        className="email-float cyber-node-container"
-        initial={{ scale: 0, x: 100 }}
-        animate={{ scale: 1, x: 0 }}
-        transition={{ delay: 1.2, type: "spring", stiffness: 260, damping: 20 }}
+        className="floating-btn-wrapper email-wrapper"
+        initial={{ scale: 0, opacity: 0, x: 60 }}
+        animate={{ scale: 1, opacity: 1, x: 0 }}
+        transition={{ delay: 0.8, type: "spring", stiffness: 220, damping: 18 }}
       >
-        <div className="node-rings-wrapper">
-          <div className="orbital-ring h-ring"></div>
-          <div className="orbital-ring v-ring"></div>
-          <div className="node-glare"></div>
+        <div className="floating-tooltip email-tooltip">
+          <span className="tooltip-title">Direct Email</span>
+          <span className="tooltip-sub">Send a message</span>
         </div>
 
-        <div className="node-core">
-          <a
-            href="mailto:pritishjadhav2006@gmail.com"
-            title="Send Email"
-          >
+        <a
+          href="mailto:pritishjadhav2006@gmail.com"
+          className="floating-action-btn email-btn"
+          aria-label="Send Email"
+        >
+          <div className="btn-ambient-pulse email-pulse"></div>
+          <div className="btn-icon-box">
             <i className="fas fa-envelope"></i>
-          </a>
-        </div>
-
-        <div className="node-label">
-          <span className="label-code">COMMS_LINK:</span>
-          <span className="label-text">EMAIL_REACH</span>
-        </div>
+          </div>
+          <span className="status-beacon email-beacon">
+            <span className="beacon-ping"></span>
+            <span className="beacon-dot"></span>
+          </span>
+        </a>
       </motion.div>
     </>
   );
