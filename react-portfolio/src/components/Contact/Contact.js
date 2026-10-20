@@ -503,6 +503,19 @@ const Contact = () => {
                       <strong>{formData.projectTypes.join(', ') || 'General Inquiry'}</strong> has been sent directly to Pritish's inbox.
                     </p>
 
+                    <div className="success-eta-card">
+                      <div className="eta-icon-box">
+                        <i className="fas fa-clock"></i>
+                      </div>
+                      <div className="eta-text-wrap">
+                        <span className="eta-title">Expected Response Time</span>
+                        <span className="eta-desc">
+                          You will receive a reply within <strong>24 to 48 hours</strong>
+                          <span className="working-days-pill">Working Days: Mon – Fri</span>
+                        </span>
+                      </div>
+                    </div>
+
                     <div className="success-fallback-actions">
                       <a
                         href={`https://wa.me/918605720415?text=${encodeURIComponent(

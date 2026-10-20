@@ -244,7 +244,9 @@ const VirtualTrackpad = () => {
       if (state.isScrollZone) {
         const deltaY = touch.clientY - state.lastY;
         state.lastY = touch.clientY;
-        window.scrollBy({ top: deltaY * 2.2, behavior: 'instant' });
+        // Natural swipe: swipe down-to-up (deltaY < 0) -> website scrolls down (top > 0)
+        // Natural swipe: swipe up-to-down (deltaY > 0) -> website scrolls up (top < 0)
+        window.scrollBy({ top: -deltaY * 2.2, behavior: 'instant' });
         return;
       }
 

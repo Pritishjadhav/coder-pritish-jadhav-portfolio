@@ -847,7 +847,73 @@
   color: #cbd5e1;
   line-height: 1.7;
   max-width: 480px;
-  margin: 0 auto 2.2rem auto;
+  margin: 0 auto 1.5rem auto;
+}
+
+/* Success Response ETA & Working Days Card */
+.success-eta-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(0, 242, 255, 0.05);
+  border: 1px solid rgba(0, 242, 255, 0.25);
+  border-radius: 14px;
+  padding: 1rem 1.3rem;
+  max-width: 440px;
+  margin: 0 auto 2rem auto;
+  text-align: left;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.eta-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(0, 242, 255, 0.15);
+  color: #00f2fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+  box-shadow: 0 0 14px rgba(0, 242, 254, 0.3);
+}
+
+.eta-text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.eta-title {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #38bdf8;
+}
+
+.eta-desc {
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+.eta-desc strong {
+  color: #ffffff;
+}
+
+.working-days-pill {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 8px;
+  background: rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  border-radius: 6px;
+  color: #c084fc;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
 }
 
 .email-highlight {
