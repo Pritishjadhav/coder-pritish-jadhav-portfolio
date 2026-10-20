@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import VirtualMouseNavButton from '../VirtualTrackpad/VirtualMouseNavButton';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -173,6 +174,10 @@ const Navbar = () => {
                     </a>
                   </motion.li>
                 ))}
+                <div className="sidebar-trackpad-toggle-wrap">
+                  <span className="sidebar-toggle-text">Virtual Trackpad</span>
+                  <VirtualMouseNavButton />
+                </div>
                 <div className="sidebar-footer">
                   <p>© 2026 PRITISH VERSE</p>
                 </div>
@@ -204,17 +209,22 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <motion.div
-          className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`}
-          onClick={toggleMobileMenu}
-          initial={{ opacity: 0, rotate: 180 }}
-          animate={{ opacity: 1, rotate: 0 }}
-          transition={{ delay: 0.8, duration: 0.5 }}
-        >
-          <span className="bar"></span>
-          <span className="bar"></span>
-          <span className="bar"></span>
-        </motion.div>
+        {/* Navbar Action Controls (Virtual Mouse Button + Hamburger) */}
+        <div className="navbar-controls-group">
+          <VirtualMouseNavButton />
+
+          <motion.div
+            className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`}
+            onClick={toggleMobileMenu}
+            initial={{ opacity: 0, rotate: 180 }}
+            animate={{ opacity: 1, rotate: 0 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
+          >
+            <span className="bar"></span>
+            <span className="bar"></span>
+            <span className="bar"></span>
+          </motion.div>
+        </div>
 
         <AnimatePresence>
           {isMobileMenuOpen && (

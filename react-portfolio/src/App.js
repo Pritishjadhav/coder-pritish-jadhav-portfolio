@@ -8,6 +8,8 @@ import Skills from './components/Skills/Skills';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import FloatingButtons from './components/FloatingButtons/FloatingButtons';
+import { VirtualMouseProvider } from './components/VirtualTrackpad/VirtualMouseContext';
+import VirtualTrackpad from './components/VirtualTrackpad/VirtualTrackpad';
 
 import './App.css';
 
@@ -18,17 +20,20 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <Navbar />
-      <Hero />
-      <About />
-      <Experience />
-      <Education />
-      <Skills />
-      <Contact />
-      <Footer />
-      <FloatingButtons />
-    </div>
+    <VirtualMouseProvider>
+      <div className="App">
+        <Navbar />
+        <Hero />
+        <About />
+        <Experience />
+        <Education />
+        <Skills />
+        <Contact />
+        <Footer />
+        <FloatingButtons />
+        <VirtualTrackpad />
+      </div>
+    </VirtualMouseProvider>
   );
 }
 

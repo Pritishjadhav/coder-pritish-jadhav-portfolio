@@ -1,0 +1,409 @@
+/* ============================================================
+   VIRTUAL MOUSE & TRACKPAD MODE - CYBER LUXURY THEME
+   ============================================================ */
+
+/* 1. VIRTUAL MOUSE CURSOR POINTER */
+.virtual-mouse-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+  z-index: 100000;
+  will-change: transform;
+  transform: translate3d(-100px, -100px, 0);
+  transition: filter 0.2s ease;
+}
+
+.cursor-arrow-body {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  transform-origin: 3px 3px;
+  transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cursor-svg {
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(0, 242, 254, 0.65)) drop-shadow(0 0 14px rgba(168, 85, 247, 0.5));
+}
+
+.cursor-hotspot-dot {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 4px;
+  height: 4px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #00f2fe;
+}
+
+/* Hovering interactive elements */
+.virtual-mouse-cursor.is-clickable .cursor-arrow-body {
+  transform: scale(1.18);
+}
+
+.cursor-target-ring {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 26px;
+  height: 26px;
+  border: 1.5px dashed #00f2fe;
+  border-radius: 50%;
+  animation: targetSpin 3s linear infinite;
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
+}
+
+@keyframes targetSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Clicking State */
+.virtual-mouse-cursor.is-clicking .cursor-arrow-body {
+  transform: scale(0.9) translate(1px, 1px);
+}
+
+/* Click Impact Ripple */
+.virtual-cursor-ripple {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border: 2px solid #00f2fe;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+}
+
+.virtual-cursor-ripple.animate {
+  animation: cursorRippleAnim 0.35s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes cursorRippleAnim {
+  0% {
+    transform: translate(-50%, -50%) scale(0.3);
+    opacity: 0.9;
+    border-color: #00f2fe;
+    box-shadow: 0 0 12px #00f2fe;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.4);
+    opacity: 0;
+    border-color: #ec4899;
+    box-shadow: 0 0 20px #ec4899;
+  }
+}
+
+/* ============================================================
+   2. VIRTUAL TRACKPAD PANEL (FIXED BOTTOM DOCK)
+   ============================================================ */
+.virtual-trackpad-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99990;
+  padding: 0 12px 14px 12px;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.virtual-trackpad-card {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 480px;
+  background: rgba(10, 12, 22, 0.94);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1.5px solid rgba(0, 242, 255, 0.35);
+  border-radius: 22px;
+  box-shadow: 
+    0 -12px 40px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(0, 242, 255, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* TOP BAR */
+.trackpad-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.trackpad-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.trackpad-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: padLiveDot 1.6s infinite ease-in-out;
+}
+
+@keyframes padLiveDot {
+  0%, 100% { opacity: 0.7; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.trackpad-title {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #38bdf8;
+}
+
+.trackpad-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.trackpad-sens-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(0, 242, 255, 0.1);
+  border: 1px solid rgba(0, 242, 255, 0.3);
+  color: #00f2fe;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.trackpad-sens-btn:hover {
+  background: rgba(0, 242, 255, 0.25);
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
+}
+
+.trackpad-gesture-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #94a3b8;
+  font-size: 0.68rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.trackpad-close-btn {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.trackpad-close-btn:hover {
+  background: #ef4444;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.5);
+}
+
+/* MAIN TOUCH SURFACE */
+.trackpad-touch-surface {
+  position: relative;
+  height: 135px;
+  background: radial-gradient(circle at center, rgba(168, 85, 247, 0.05) 0%, rgba(5, 7, 14, 0.6) 80%);
+  touch-action: none; /* Crucial: stops browser scrolling while dragging */
+  cursor: crosshair;
+  overflow: hidden;
+}
+
+/* Subtle Cyber Grid Texture */
+.trackpad-cyber-texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+
+/* Center Crosshair Mark */
+.trackpad-center-mark {
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.14);
+  pointer-events: none;
+}
+
+.mark-icon {
+  font-size: 1.4rem;
+}
+
+.mark-label {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.22);
+}
+
+/* Right Edge 1-Finger Scroll Strip */
+.trackpad-edge-scroll-strip {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 18%;
+  height: 100%;
+  border-left: 1px dashed rgba(0, 242, 255, 0.25);
+  background: rgba(0, 242, 255, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.scroll-arrow {
+  font-size: 0.65rem;
+  color: #38bdf8;
+  opacity: 0.5;
+  animation: scrollArrowPulse 1.8s infinite alternate ease-in-out;
+}
+
+.scroll-label {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #38bdf8;
+  opacity: 0.6;
+}
+
+@keyframes scrollArrowPulse {
+  0% { opacity: 0.3; transform: translateY(-2px); }
+  100% { opacity: 0.8; transform: translateY(2px); }
+}
+
+/* Touch Dot Feedback */
+.trackpad-touch-dot {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 242, 255, 0.5) 0%, rgba(168, 85, 247, 0.2) 60%, transparent 80%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  box-shadow: 0 0 14px rgba(0, 242, 255, 0.5);
+  animation: touchDotPulse 0.4s ease-out infinite alternate;
+}
+
+@keyframes touchDotPulse {
+  0% { transform: translate(-50%, -50%) scale(0.9); }
+  100% { transform: translate(-50%, -50%) scale(1.15); }
+}
+
+/* BOTTOM BUTTONS (LEFT CLICK / RIGHT CLICK) */
+.trackpad-bottom-buttons {
+  display: flex;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.trackpad-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  color: #e2e8f0;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.left-click-btn {
+  flex: 2.2;
+  color: #00f2fe;
+}
+
+.left-click-btn:active {
+  background: rgba(0, 242, 255, 0.15);
+  box-shadow: inset 0 2px 8px rgba(0, 242, 255, 0.3);
+}
+
+.right-click-btn {
+  flex: 1;
+  color: #cbd5e1;
+}
+
+.right-click-btn:active {
+  background: rgba(168, 85, 247, 0.15);
+  box-shadow: inset 0 2px 8px rgba(168, 85, 247, 0.3);
+}
+
+.trackpad-btn-divider {
+  width: 1px;
+  height: 60%;
+  align-self: center;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive adjust for small phones */
+@media (max-width: 420px) {
+  .trackpad-touch-surface {
+    height: 120px;
+  }
+  .trackpad-bottom-buttons {
+    height: 44px;
+  }
+  .trackpad-gesture-hint {
+    display: none;
+  }
+}
