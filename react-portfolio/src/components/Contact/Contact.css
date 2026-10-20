@@ -51,6 +51,93 @@
   z-index: 0;
 }
 
+/* Floating Ambient Cyber Glyphs */
+.contact-floating-glyph {
+  position: absolute;
+  pointer-events: none;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-weight: 900;
+  z-index: 1;
+  user-select: none;
+  opacity: 0.16;
+  text-shadow: 0 0 20px currentColor;
+  transition: opacity 0.5s ease;
+}
+
+.glyph-1 {
+  top: 14%;
+  left: 5%;
+  font-size: 3.8rem;
+  color: #a855f7;
+}
+
+.glyph-2 {
+  bottom: 18%;
+  right: 4%;
+  font-size: 3.4rem;
+  color: #00f2ff;
+}
+
+.glyph-3 {
+  top: 50%;
+  left: 48%;
+  font-size: 2.2rem;
+  color: #ec4899;
+  opacity: 0.22;
+}
+
+/* Floating Status Badges */
+.contact-floating-badge {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(13, 15, 26, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 242, 255, 0.3);
+  border-radius: 30px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  color: #e2e8f0;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 242, 255, 0.12);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.badge-top-left {
+  top: 3.5%;
+  left: 4%;
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #34d399;
+}
+
+.badge-bottom-right {
+  bottom: 2.5%;
+  right: 4%;
+  border-color: rgba(168, 85, 247, 0.4);
+  color: #c084fc;
+}
+
+.badge-glow-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+}
+
+.blink-fast {
+  animation: blinkFast 1.5s infinite;
+}
+
+@keyframes blinkFast {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
 /* ------------------------------------------------------------
    SECTION HEADER BLOCK (COMPACT & SLEEK)
    ------------------------------------------------------------ */
@@ -821,6 +908,14 @@
    RESPONSIVE ADAPTATION
    ------------------------------------------------------------ */
 @media (max-width: 1024px) {
+  .contact-floating-badge {
+    display: none;
+  }
+
+  .contact-floating-glyph {
+    opacity: 0.07;
+  }
+
   .contact-layout-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
